@@ -590,14 +590,14 @@ def interaction_trace_rows(interaction_df, choosers, sample_size=None):
 
     traceable_table_ids = inject.get_injectable('traceable_table_ids', {})
 
-    if choosers.index.name == 'person_id' and 'persons' in traceable_table_ids:
+    if choosers.index.name == 'perid' and 'persons' in traceable_table_ids:
         slicer_column_name = choosers.index.name
         targets = traceable_table_ids['persons']
-    elif 'household_id' in choosers.columns and 'households' in traceable_table_ids:
-        slicer_column_name = 'household_id'
+    elif 'hh_id' in choosers.columns and 'households' in traceable_table_ids:
+        slicer_column_name = 'hh_id'
         targets = traceable_table_ids['households']
-    elif 'person_id' in choosers.columns and 'persons' in traceable_table_ids:
-        slicer_column_name = 'person_id'
+    elif 'perid' in choosers.columns and 'persons' in traceable_table_ids:
+        slicer_column_name = 'perid'
         targets = traceable_table_ids['persons']
     else:
         print(choosers.columns)
